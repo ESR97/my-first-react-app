@@ -1,12 +1,18 @@
 import { useState } from "react";
 
-export default function Counter() {
+export default function Counter(props) {
   
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(props.defaultValue || 0);
+  const [dialogVisible, setDialogVisible] = useState(false);
+
+  console.log("组件渲染",props)
 
   const increase = () => {
     setCount(prev => prev + 1)
-    console.log("count update", count)
+    setCount(prev => prev + 1)
+    // console.log("count update", count)
+
+    setDialogVisible(true)
   }
 
   const decrease = () => {
@@ -22,6 +28,7 @@ export default function Counter() {
       <button onClick={increase}>+</button>
       <span>{ count }</span>
       <button onClick={decrease}>-</button>
+      <span>{props.defaultValue}</span>
     </div>
   )
 }
