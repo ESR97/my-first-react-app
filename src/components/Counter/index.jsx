@@ -25,10 +25,12 @@ export default function Counter(props) {
 
   return (
     <div>
-      <button onClick={increase}>+</button>
+      <div onClick={props.onClick} style={{ width: '100px', height: '200px', backgroundColor: 'red' }}></div>
+      <button onClick={() => console.log('hello button')}>click me</button>
+      {/* <button onClick={increase}>+</button>
       <span>{ count }</span>
       <button onClick={decrease}>-</button>
-      <span>{props.defaultValue}</span>
+      <span>{props.defaultValue}</span> */}
     </div>
   )
 }

@@ -8,15 +8,12 @@ function App() {
 
   const handleClick = () => {
     // setCountValue(prev => prev + 1)
-    _countValue++;
+    console.log("hello react")
   }
 
   return (
     <div>
-      <Counter defaultValue={_countValue} />
-      {/* <Counter defaultValue={20} /> */}
-      <button onClick={ handleClick }>点击我</button>
-      {/* <Counter /> */}
+      <Counter onClick={ handleClick } defaultValue={_countValue} />
     </div>
   )
 }
