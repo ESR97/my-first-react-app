@@ -1,22 +1,17 @@
 import { useEffect, useState } from "react";
+import { getStudentList } from "../../request";
 
 export default function StudentList() {
   const [studentList, setStudentList] = useState([])
 
-  const getStudentListFromServer = () => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        setStudentList([{ name: "王晓华" }, { name: "黎明" }])
-        resolve(true)
-      }, 1000)
-    })
+  const fetchStudentListFromServer = async () => {
+    const studentData = await getStudentList()
+    console.log('studentData', studentData)
   }
 
   useEffect(() => {
-    getStudentListFromServer();
-    document.onkeydown = (e) => {
-      console.log('hello key down');
-    }
+    fetchStudentListFromServer();
+    
   }, [])
 
   return (
